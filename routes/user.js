@@ -3,7 +3,7 @@
  * GET users listing.
  */
 
-var username, password, firstname,lastname,dod,gender;
+var username, password, firstName,lastName;
 
 var list = function(req, res){
   res.send("respond with a resource");
@@ -18,12 +18,11 @@ var login = function(req,res){
 }
 
 var signupValidate = function(req, res){
-	username = req.param("username");
+	username = req.param("emailAddress");
 	password = req.param("password");
-	firstname = req.param("firstname");
-	lastname = req.param("lastname");
-	dob = req.param("dob");
-	gender = req.param("gender");
+	firstName = req.param("firstName");
+	lastName = req.param("lastName");
+	console.log(username+ " "+ password+" firstname: " +firstName);
 	login(req,res);
 };
 
@@ -35,10 +34,8 @@ var loginValidate = function(req,res){
 	if(username === req.param("username") && password === req.param("password")){
 		res.render("success", {
 			username:username,
-			firstname: firstname,
-			lastname:lastname,
-			dob:dob,
-			gender:gender
+			firstName: firstName,
+			lastName:lastName
 			
 		});
 	}
